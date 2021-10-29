@@ -49,4 +49,11 @@ server_name pyshop.anhonestobserver.com www.pyshop.anhonestobserver.com;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
 doing the uwsgi method https://www.youtube.com/watch?v=ZpR1W-NWnp4
-to run server, uwsgi --http :8000 --module pyshop.wsgi
+to run server, adding & makes it run in background, uwsgi --http :8000 --module pyshop.wsgi &
+need htop to kill it if in background, https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-applications-using-uwsgi-web-server-with-nginx
+
+working from here, but continuing on with the tony teaches tech video, changed the nginx, added uwsgi_params file, do uwsgi --socket pyshop.sock --module pyshop.wsgi --chmod-socket=666
+now its not working again.
+next time do gunicorn?
+
+to kill a process, ps -aux to search all processes, then kill 9 <pid>
