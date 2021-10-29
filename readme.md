@@ -19,3 +19,4 @@ have to collect all the static files with python3 manage.py collectstatic
 ec2 wasnt letting me git pull because no user.name and user.email was set, so
 git config --global user.name "andrewcbuensalida"
 git config --global user.email "andrewcbuensalida@gmail.com"
+if you cant see a remote branch, git remote update
