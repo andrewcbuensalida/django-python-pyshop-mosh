@@ -20,3 +20,30 @@ ec2 wasnt letting me git pull because no user.name and user.email was set, so
 git config --global user.name "andrewcbuensalida"
 git config --global user.email "andrewcbuensalida@gmail.com"
 if you cant see a remote branch, git remote update
+to fix git refusing to merge unrelated histories when pulling from github into ec2,
+git pull origin branchname --allow-unrelated-histories
+
+trying this for nginx
+server {
+#root /home/ubuntu/starwars;
+#index index.html index.htm index.nginx-debian.html;
+server_name pyshop.anhonestobserver.com www.pyshop.anhonestobserver.com;
+
+        location /static/ {
+                alias /home/ubuntu/pyshop/static/;
+        }
+
+        location / {
+                proxy_pass http://0.0.0.0:8000/;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/doctordb.anhonestobserver.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/doctordb.anhonestobserver.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
