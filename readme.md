@@ -64,3 +64,4 @@ to kill, pkill gunicorn
 now trying code pipeline
 buildspec is for code build
 appspec is for code deploy
+didnt work, so workflow would be push master to github, then ssh into ec2, then pull.
