@@ -11,7 +11,7 @@ then activate it with source venv/bin/activate
 venv is its an environment to contain the program, to not interfere with other programs
 in pyshop/settings, allowed host has to be ALLOWED_HOSTS = ['pyshop.anhonestobserver.com']
 nginx has to proxy to localhost:8000 not localhost:8000/products
-had to create super user to be admin
+had to create super user to be admin, python manage.py createsuperuser
 un=admin
 pw=1234
 when migrating db, data from local disappears
@@ -54,6 +54,9 @@ need htop to kill it if in background, https://www.digitalocean.com/community/tu
 
 working from here, but continuing on with the tony teaches tech video, changed the nginx, added uwsgi_params file, do uwsgi --socket pyshop.sock --module pyshop.wsgi --chmod-socket=666
 now its not working again.
+// to kill a process, ps -aux to search all processes, then kill 9 <pid>
 next time do gunicorn?
 
-to kill a process, ps -aux to search all processes, then kill 9 <pid>
+yes gunicorn works. just install then gunicorn pyshop.wsgi --daemon to run in background
+it's hot reload
+to kill, pkill gunicorn
