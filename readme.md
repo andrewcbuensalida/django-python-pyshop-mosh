@@ -47,3 +47,6 @@ server_name pyshop.anhonestobserver.com www.pyshop.anhonestobserver.com;
     ssl_certificate_key /etc/letsencrypt/live/doctordb.anhonestobserver.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+doing the uwsgi method https://www.youtube.com/watch?v=ZpR1W-NWnp4
+to run server, uwsgi --http :8000 --module pyshop.wsgi

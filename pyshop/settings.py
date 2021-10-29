@@ -25,7 +25,7 @@ SECRET_KEY = '$b#+anbvg2=2m#o)@ruuqy$9r19k1kkc=y#x!hdnyfxxze4jug'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pyshop.anhonestobserver.com','www.pyshop.anhonestobserver.com']
 
 
 # Application definition
