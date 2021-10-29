@@ -20,7 +20,11 @@ cd /home/ubuntu/pyshop
 
 #install node modules
 # npm i --production --prefer-offline
+virtualenv -p python3 venv
+source venv/bin/activate
 pip install -r requirements.txt
+python3 manage.py migrate
+python3 manage.py collectstatic --no-input
 echo "Finished installing server"
 
 #start our node app in the background, exchanged app with script

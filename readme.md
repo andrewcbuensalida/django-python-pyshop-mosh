@@ -60,3 +60,7 @@ next time do gunicorn?
 yes gunicorn works. just install then gunicorn pyshop.wsgi --daemon to run in background
 it's hot reload
 to kill, pkill gunicorn
+
+now trying code pipeline
+buildspec is for code build
+appspec is for code deploy
