@@ -67,8 +67,10 @@ appspec is for code deploy
 didnt work, so workflow would be push master to github, then ssh into ec2, then pull.
 
 about git
-there are the local branches, then tracking branches which are proxies for remote(upstream) branches but saved on local machine, when a remote branch is edited, these tracking branches arent automatically updated. youd have to do git remote update. git fetch is basically git remote update but just for one tracking branch. when on a local branch linked , doing git pull automatically knows which remote repo to pull from, then merges the tracking branch with the local branch.
+there are the local branches, then tracking branches which are proxies for remote(upstream) branches but saved on local machine, when a remote branch is edited, these tracking branches arent automatically updated. youd have to do git remote update. git fetch is basically git remote update but just for one tracking branch. when on a local branch linked to a tracking branch, doing git pull automatically knows which remote repo to pull from, then merges the remote with the local branch.
+when on master branch, then merge with feature branch, the master branch gets to updates of the feature branch.
 to check what local branches are tracking what upstream branches, git branch -vv
 git branch -a to see local and remote branches
 to make a local branch track a remote branch, checkout that local branch, then git checkout --track remotes/pyshop/<branch>
 origin is the remote github url
+rebase puts all the changes of another branch and sticks it in where it first diverged with your branch.
