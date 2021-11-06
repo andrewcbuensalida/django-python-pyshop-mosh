@@ -34,7 +34,7 @@ server_name pyshop.anhonestobserver.com www.pyshop.anhonestobserver.com;
         }
 
         location / {
-                proxy_pass http://0.0.0.0:8000/;
+                proxy_pass http://0.0.0.0:8000/products/;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection 'upgrade';
@@ -77,4 +77,7 @@ rebase puts all the changes of another branch and sticks it in where it first di
 git push origin master to push new commits of the master branch to github
 git push origin --all to push new commits of all branches to github
 
-dont forget the /products in the url
+with nginx proxypass to :8000/products/, it works. the problem is, if you just go to pyshop.anhonestobserver.com/admin, it wont be found. somehow have to tell gunicorn to redirect to products. or do a contrived nginx thing where / redirects to
+:8000/products/ and /admin redirects to :8000/admin/
+
+sudo nano /etc/nginx/sites-available/pyshop.anhonestobserver.com.conf
