@@ -76,3 +76,5 @@ origin is the remote github url
 rebase puts all the changes of another branch and sticks it in where it first diverged with your branch.
 git push origin master to push new commits of the master branch to github
 git push origin --all to push new commits of all branches to github
+
+dont forget the /products in the url
