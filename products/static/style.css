@@ -12,20 +12,25 @@ body {
 	justify-content: space-evenly;
 }
 
-.card {
+.myCard {
 	width: 18rem;
 	height: 25rem;
+	background-color: aliceblue;
+	border-radius: 5px;
 }
-.card > img {
+.myCard > img {
 	height: 50%;
 	object-fit: cover;
+	border-radius: 5px 5px 0px 0px;
 }
 
-.card-body {
+.mycard-body {
 	position: relative;
+	height: 50%;
+	margin: 0.5rem;
 }
 
-.card-body > .btn {
+.mycard-body > .btn {
 	position: absolute;
 	bottom: 1rem;
 	left: 50%;
