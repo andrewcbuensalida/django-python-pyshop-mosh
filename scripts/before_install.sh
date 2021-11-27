@@ -6,7 +6,7 @@
 # nvm install node
 
 #create our working directory if it doesnt exist
-DIR="/home/ubuntu/books"
+DIR="/home/ubuntu/pyshop"
 if [ -d "$DIR" ]; then
   echo "${DIR} exists"
 else

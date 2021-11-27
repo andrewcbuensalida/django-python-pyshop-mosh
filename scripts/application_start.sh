@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #give permission for everything in the express-app directory
-sudo chmod -R 777 /home/ubuntu/books
+sudo chmod -R 777 /home/ubuntu/pyshop
 
 #add npm and node to path
 # export NVM_DIR="$HOME/.nvm"	
@@ -15,6 +15,8 @@ cd /home/ubuntu/pyshop/
 # initially do sudo npm ci, then after, do this
 # npm i --production --prefer-offline
 pip install -r requirements.txt
+
+python3 manage.py migrate
 gunicorn pyshop.wsgi --daemon
 echo "Finished installing server"
 
