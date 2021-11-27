@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Products</h1>
-<div class="row">
+<div class="products">
 	{% for product in products %}
-	<div class="col">
-		<div class="card" style="width: 18rem">
+	<div class="product">
+		<div class="card">
 			<img src="{{product.image_url}}" class="card-img-top" alt="..." />
 			<div class="card-body">
 				<h5 class="card-title">

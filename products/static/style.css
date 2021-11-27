@@ -1,0 +1,33 @@
+body {
+	background-image: linear-gradient(
+		0deg,
+		rgb(236, 236, 236),
+		rgb(228, 252, 225)
+	);
+	min-height: 100vh;
+}
+
+.products {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.card {
+	width: 18rem;
+	height: 25rem;
+}
+.card > img {
+	height: 50%;
+	object-fit: cover;
+}
+
+.card-body {
+	position: relative;
+}
+
+.card-body > .btn {
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+}

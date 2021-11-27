@@ -65,7 +65,7 @@ to kill, pkill gunicorn
 now trying code pipeline
 buildspec is for code build
 appspec is for code deploy
-didnt work, so workflow would be push master to github, then ssh into ec2, then pull. then pkill gunicorn then gunicorn pyshop.wsgi --daemon
+didnt work, so workflow would be (actually there's a newer workflow below) push master to github, then ssh into ec2, then pull. then pkill gunicorn then gunicorn pyshop.wsgi --daemon
 
 about git
 there are the local branches, then tracking branches which are proxies for remote(upstream) branches but saved on local machine,
@@ -184,5 +184,6 @@ then gunicorn pyshop.wsgi --daemon to run in background
 // to kill a process, ps -aux to search all processes, then kill 9 <pid>
 it's NOT hot reload
 to kill, pkill gunicorn
-workflow would be push master to github, then ssh into ec2, then git pull, then pip install -r requirements.txt, then pkill gunicorn then gunicorn pyshop.wsgi --daemon
+
+codepipeline worked, so workflow is python manage.py runserver and python manage.py makemigrations during development, then when it's ready, push to gh and it will auto deploy, i hope. i know for sure though that html autodeploys.
 
