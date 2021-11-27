@@ -187,3 +187,4 @@ to kill, pkill gunicorn
 
 codepipeline worked, so workflow is python manage.py runserver and python manage.py makemigrations during development, then when it's ready, push to gh and it will auto deploy, i hope. i know for sure though that html autodeploys.
 
+/* for some reason during development, the static folder in the products folder is the one that's active, not the root state css */

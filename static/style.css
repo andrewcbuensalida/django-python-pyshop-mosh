@@ -1,6 +1,38 @@
 body {
-	background-color: rgb(238, 174, 133);
+	background-image: linear-gradient(
+		0deg,
+		rgb(236, 236, 236),
+		rgb(228, 252, 225)
+	);
+	min-height: 100vh;
 }
-div {
-	background-color: rgb(238, 174, 131);
+
+.products {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.myCard {
+	width: 18rem;
+	height: 25rem;
+	background-color: aliceblue;
+	border-radius: 5px;
+}
+.myCard > img {
+	height: 50%;
+	object-fit: cover;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.mycard-body {
+	position: relative;
+	height: 50%;
+	margin: 0.5rem;
+}
+
+.mycard-body > .btn {
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
 }
