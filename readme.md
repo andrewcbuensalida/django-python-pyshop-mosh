@@ -144,21 +144,14 @@ server {
                 alias /home/ubuntu/pyshop/static/;
         }  
         location / {
-                proxy_pass http://0.0.0.0:8000/products/;  
+                proxy_pass http://0.0.0.0:8000/;  
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection 'upgrade';  
                 proxy_set_header Host $host;
                 proxy_cache_bypass $http_upgrade; 
         }
-        location /admin {
-                proxy_pass http://0.0.0.0:8000/admin;  
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection 'upgrade';  
-                proxy_set_header Host $host;
-                proxy_cache_bypass $http_upgrade; 
-        }
+
 }
 
 
@@ -185,6 +178,21 @@ then gunicorn pyshop.wsgi --daemon to run in background
 it's NOT hot reload
 to kill, pkill gunicorn
 
-codepipeline worked, so workflow is python manage.py runserver and python manage.py makemigrations during development, then when it's ready, push to gh and it will auto deploy, i hope. i know for sure though that html autodeploys.
-
 /* for some reason during development, the static folder in the products folder is the one that's active, not the root state css */
+
+codepipeline worked, so workflow is python manage.py runserver and python manage.py makemigrations during development, then when it's ready, push to gh and it will auto deploy, i hope. i know for sure though that html autodeploys. doesnt seem to auto restart after server is down though.
+
+trying this for auto restart on server crash
+THIS LINE CRASHED MY SERVER AND I DONT KNOW IF I CAN GET IT BACK...i got it back.
+pm2 start "gunicorn pyshop.wsgi --daemon" --watch --name pyshop
+
+
+now trying this for auto restart
+gunicorn --bind 0.0.0.0:8000 pyshop.wsgi
+now when i go to /, it redirects to /products. /admin also works.
+i guess for auto restart,
+sudo nano /etc/systemd/system/gunicorn.service
+didnt end up finishing this method because too complicated. 
+https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
+so if server crashes, just do this to restart
+gunicorn --bind 0.0.0.0:8000 pyshop.wsgi --daemon

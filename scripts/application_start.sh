@@ -17,7 +17,7 @@ cd /home/ubuntu/pyshop/
 pip install -r requirements.txt
 
 python3 manage.py migrate
-gunicorn pyshop.wsgi --daemon
+gunicorn --bind 0.0.0.0:8000 pyshop.wsgi --daemon
 echo "Finished installing server"
 
 
